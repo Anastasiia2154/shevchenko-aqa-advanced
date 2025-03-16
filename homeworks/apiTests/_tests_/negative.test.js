@@ -12,7 +12,7 @@ describe('Object endpoints tests', () => {
 		expect(response.status).toBe(404);
 	});
 
-	test('GET: Should return 400 for invalid ID format', async () => {
+	test('GET: Should return 404 for invalid ID format', async () => {
 		invalidId = 'test';
 		const response = await devices.getSingleObject(invalidId);
 		expect(response.status).toBe(404);
@@ -33,7 +33,7 @@ describe('Object endpoints tests', () => {
 		expect(response.status).toBe(404);
 	});
 
-	test('PUT: Should return 400 for invalid ID format', async () => {
+	test('PUT: Should return 404 for invalid ID format', async () => {
 		invalidId = 'TEST';
 		const updatedObjectData = { name: 'Broken Update' };
 		const response = await devices.updateObject(invalidId, updatedObjectData);
@@ -50,7 +50,7 @@ describe('Object endpoints tests', () => {
 		expect(response.status).toBe(404);
 	});
 
-	test('PATCH: Should return 400 for invalid ID format', async () => {
+	test('PATCH: Should return 404 for invalid ID format', async () => {
 		invalidId = '!@#wrong-id';
 		const updatedObjectData = { name: 'Bad Patch' };
 		const response = await devices.particularUpdateObject(invalidId, updatedObjectData);
@@ -62,7 +62,7 @@ describe('Object endpoints tests', () => {
 		expect(response.status).toBe(404);
 	});
 
-	test('DELETE: Should return 400 for invalid ID format', async () => {
+	test('DELETE: Should return 404 for invalid ID format', async () => {
 		invalidId = '!../';
 		const response = await devices.deleteObject(invalidId);
 		expect(response.status).toBe(404);
